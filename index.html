@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oya – Book a ride in Lagos, Abuja &amp; across Nigeria</title>
+<meta name="description" content="Oya is a Nigerian ride-hailing app: upfront fares in ₦, verified drivers and trip sharing in Lagos, Abuja, Port Harcourt, Ibadan, Benin City, Enugu and Kano.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23FFC21A'/%3E%3Cpath d='M11 27c0-9 5-15 9-15s9 6 9 15' fill='none' stroke='%230C2A6B' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--ink:#0F1B3D;--blue:#173B8C;--blue2:#0C2A6B;--yel:#FFC21A;--bg:#F5F6FA;--card:#fff;--txt:#0F1B3D;--mut:#5A6385;--line:#E1E4EE;--ok:#0E8F5B;--warn:#B76E00;--err:#C62828;--r:14px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0A1226;--card:#131E3A;--txt:#EEF1FA;--mut:#A3ACCB;--line:#26335A;--ink:#EEF1FA}}
+:root[data-theme=dark]{--bg:#0A1226;--card:#131E3A;--txt:#EEF1FA;--mut:#A3ACCB;--line:#26335A;--ink:#EEF1FA}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.55 'DM Sans',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque','DM Sans',sans-serif;line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2.3rem,6vw,4.2rem);font-weight:800}h2{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800}h3{font-size:1.15rem;font-weight:600}
+p{margin:0 0 1em}a{color:inherit}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section.blk{padding:56px 0}
+header{position:sticky;top:0;z-index:20;background:var(--blue2);color:#fff}
+header .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.logo{display:flex;align-items:center;gap:8px;font:800 1.6rem 'Bricolage Grotesque';background:none;border:0;color:#fff;padding:0}
+nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+nav button{background:none;border:0;color:#dfe5fa;padding:8px 12px;border-radius:99px}
+nav button:hover,nav button.on{background:rgba(255,255,255,.12);color:#fff}
+.btn{border:0;border-radius:99px;padding:12px 22px;font-weight:700;transition:.15s;display:inline-flex;gap:8px;align-items:center;justify-content:center}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:none}
+.p{background:var(--yel);color:#1a1400}.s{background:var(--blue);color:#fff}.o{background:none;border:2px solid currentColor}.d{background:var(--err);color:#fff}
+.btn[disabled]{opacity:.55;cursor:wait}
+#burger{display:none;margin-left:auto;background:none;border:0;color:#fff;font-size:1.7rem}
+@media(max-width:860px){#burger{display:block}nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--blue2);flex-direction:column;align-items:stretch;padding:12px 20px 20px;margin:0}nav.open{display:flex}nav button{text-align:left;padding:14px}}
+.view{display:none}.view.on{display:block;animation:in .25s}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.hero{background:var(--blue2);color:#fff;padding:48px 0 72px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.hero p.lead{font-size:1.15rem;color:#cfd8f6;max-width:34em}
+.road{position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,var(--yel) 0 40px,transparent 40px 70px);opacity:.9}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.widget{color:var(--txt);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+label{display:block;font-weight:700;font-size:.88rem;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--txt);font:inherit}
+input[aria-invalid=true],select[aria-invalid=true],textarea[aria-invalid=true]{border-color:var(--err)}
+.err{color:var(--err);font-size:.85rem;min-height:1.1em;margin-top:3px}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.sp{justify-content:space-between}
+.mut{color:var(--mut)}.tag{display:inline-block;background:#e4f6ee;color:var(--ok);font-weight:700;font-size:.78rem;padding:3px 10px;border-radius:99px}
+.rc{cursor:pointer;display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;border:2px solid var(--line);text-align:left;width:100%;color:var(--txt);background:var(--card);border-radius:var(--r);padding:12px;margin-bottom:10px;transition:.15s}
+.rc:hover{border-color:var(--blue)}.rc.sel{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,59,140,.2)}
+.rc svg{width:76px}.price{font:800 1.25rem 'Bricolage Grotesque'}
+.bd div{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line)}.bd .t{font-weight:800;border:0;font-size:1.1rem}
+.pay{display:flex;gap:10px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;cursor:pointer}
+.pay input{width:auto}.pay:has(input:checked){border-color:var(--blue);background:rgba(23,59,140,.08)}
+.step{display:flex;gap:14px}.step b{flex:none;width:44px;height:44px;border-radius:50%;background:var(--yel);color:#1a1400;display:grid;place-items:center;font:800 1.2rem 'Bricolage Grotesque'}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:8px}summary{font-weight:700;cursor:pointer}
+.city{background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:16px;text-align:left;color:var(--txt)}
+.city:hover,.city.on{border-color:var(--blue);background:rgba(23,59,140,.08)}
+.band{background:var(--blue);color:#fff}.band .card{color:var(--txt)}
+.toasts{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:grid;gap:8px}
+.toast{background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:in .2s;max-width:320px}
+.toast.bad{background:var(--err);color:#fff}
+.sos{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;background:#fff;color:var(--blue2);border:2px solid var(--blue2);box-shadow:0 6px 18px rgba(0,0,0,.25)}
+dialog{border:0;border-radius:18px;padding:24px;max-width:460px;width:calc(100% - 32px);background:var(--card);color:var(--txt);animation:in .2s}
+dialog::backdrop{background:rgba(8,14,34,.6)}
+.map{background:#dfe8f7;border-radius:var(--r);width:100%;display:block}
+footer{background:var(--blue2);color:#cfd8f6;padding:44px 0 24px;margin-top:40px}footer h3{color:#fff;font-size:1rem}footer button{display:block;background:none;border:0;color:#cfd8f6;padding:4px 0;text-align:left}footer button:hover{color:#fff}
+.stat{font:800 2.2rem 'Bricolage Grotesque'}
+.tabs{display:flex;gap:6px;margin-bottom:12px}.tabs button{flex:1;padding:10px;border:2px solid var(--line);background:none;color:var(--txt);border-radius:10px;font-weight:700}.tabs button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.sw{width:56px;height:30px;border-radius:99px;border:0;background:#9aa3c2;position:relative}.sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s}.sw[aria-pressed=true]{background:var(--ok)}.sw[aria-pressed=true]::after{left:29px}
+:root[data-theme=dark]{--blue:#3F6FE6;--tagbg:#12392c;--tagtx:#5ee0a4;--mapf:brightness(.7) contrast(1.05)}
+:root[data-theme=light]{--tagbg:#e4f6ee;--tagtx:#0E8F5B;--mapf:none}
+.tag{background:var(--tagbg);color:var(--tagtx)}.map{filter:var(--mapf)}
+:root[data-theme=dark] .sos{background:var(--card);color:var(--txt);border-color:var(--line)}
+:root[data-theme=dark] .rc svg path:first-child{filter:brightness(1.25)}
+.th{background:rgba(255,255,255,.12);border:0;color:#fff;border-radius:99px;width:40px;height:40px;font-size:1.1rem;margin-left:8px}.th:hover{background:rgba(255,255,255,.22)}
+.hero .wrap{position:relative;z-index:1}.hero .art{position:absolute;left:0;right:0;bottom:10px;height:190px;opacity:.5;pointer-events:none}.hero .art svg,.cimg svg,.banner svg{width:100%;height:100%;display:block}
+.hero{background:linear-gradient(180deg,#0A2257,#12307A)}
+.trust{border-bottom:1px solid var(--line);background:var(--card)}.trust .wrap{display:flex;gap:28px;justify-content:space-between;flex-wrap:wrap;padding:18px 20px;font-weight:700;font-size:.92rem}
+.cimg{height:88px;border-radius:10px;overflow:hidden;margin-bottom:10px;background:linear-gradient(#FFE29A,#FFF4D8)}.cimg img{width:100%;height:100%;object-fit:cover}
+:root[data-theme=dark] .cimg{background:linear-gradient(#3a3f6e,#1d2a52)}
+.banner{height:160px;border-radius:var(--r);overflow:hidden;margin-bottom:24px;background:linear-gradient(#FFE29A,#FFF4D8)}:root[data-theme=dark] .banner{background:linear-gradient(#3a3f6e,#1d2a52)}
+.card{box-shadow:0 1px 2px rgba(15,27,61,.06),0 8px 24px rgba(15,27,61,.05)}
+.i{width:1.15em;height:1.15em;vertical-align:-.2em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+h1,h2,h3{text-wrap:balance}.price,.stat{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol><symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></symbol><symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M17 13h.01"/></symbol><symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><circle cx="12" cy="12" r="2.5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></symbol><symbol id="i-id" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M14 10h4M14 14h3"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></symbol><symbol id="i-work" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2"/></symbol><symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11"/><path d="M12 9v11M3 13h18"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1110 4a6 6 0 0010 10z"/></symbol></svg>
+<header><div class="wrap">
+<button class="logo" data-go="home" aria-label="Oya home"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#FFC21A"/><path d="M11 27c0-9 5-15 9-15s9 6 9 15" fill="none" stroke="#0C2A6B" stroke-width="5" stroke-linecap="round"/><circle cx="20" cy="27" r="3.5" fill="#0C2A6B"/></svg>Oya</button>
+<button id="burger" aria-label="Menu" aria-expanded="false">☰</button>
+<nav id="nav" aria-label="Main">
+<button data-go="home">Home</button><button data-go="ride">Ride</button><button data-go="drive">Drive</button><button data-go="safety">Safety</button><button data-go="about">About</button><button data-go="help">Help</button>
+<button data-act="auth-login" id="loginBtn">Login</button><button data-act="auth-signup" id="signBtn">Sign Up</button>
+<button class="btn p" data-go="ride">Book a Ride</button></nav><button id="theme" class="th" aria-label="Switch to dark mode"><svg class="i" aria-hidden="true"><use href="#i-moon"/></svg></button></div></header>
+<main>
+<!-- HOME -->
+<div class="view on" id="v-home">
+<section class="hero"><div class="wrap"><div>
+<h1>Your ride. Your city. Oya, let's go.</h1>
+<p class="lead">Nigeria's ride app with the price shown before you book, drivers verified before they drive, and a way to pay that suits you: card, transfer, USSD, wallet or cash.</p>
+<div class="row"><button class="btn p" data-go="ride">Book a Ride</button><button class="btn o" data-go="drive">Become a Driver</button></div>
+<p class="mut" style="color:#a9b5e0;margin-top:18px">Now in Lagos, Abuja, Port Harcourt, Ibadan, Benin City, Enugu and Kano.</p></div>
+<form class="card widget" id="heroForm" novalidate><h3>Where are you going?</h3>
+<label for="hCity">City</label><select id="hCity" class="citySel"></select>
+<label for="hFrom">Pickup</label><input id="hFrom" list="places" placeholder="Where are you?" autocomplete="off">
+<label for="hTo">Destination</label><input id="hTo" list="places" placeholder="Where to?" autocomplete="off"><div class="err" id="hErr" role="alert"></div>
+<button class="btn p" style="width:100%;margin-top:8px">See fares in ₦</button></form></div><div class="road"></div></section>
+
+<div class="trust"><div class="wrap"><span><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Every driver verified</span><span>₦ Upfront fares, no surprises</span><span><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Live trip sharing</span><span><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> Support 24/7</span><span><svg class="i" aria-hidden="true"><use href="#i-card"/></svg> Card · Transfer · USSD · Cash</span></div></div>
+<section class="blk wrap"><h2>Three steps to your ride</h2><div class="grid g3">
+<div class="step"><b>1</b><div><h3>Set your destination</h3><p class="mut">Enter where you're going, with landmarks or areas you know.</p></div></div>
+<div class="step"><b>2</b><div><h3>Choose your ride</h3><p class="mut">Compare Go, Comfort, XL and Premium with the full fare shown.</p></div></div>
+<div class="step"><b>3</b><div><h3>Ride safely</h3><p class="mut">Meet your verified driver, share your trip and pay your way.</p></div></div></div></section>
+
+<section class="blk wrap" style="padding-top:0"><h2>Pick the ride that fits your day</h2><div class="grid g4" id="homeRides"></div>
+<p class="mut" style="font-size:.85rem">Fares are estimates and may change with traffic, route, demand, tolls or other factors.</p></section>
+
+<section class="blk band"><div class="wrap"><h2>Built for the way Nigeria moves</h2><div class="grid g3">
+<div class="card"><h3>Price before you ride</h3><p class="mut">Base fare, distance, time and fee, all itemised. Peak pricing is flagged, never hidden.</p></div>
+<div class="card"><h3>Pay how you like</h3><p class="mut">Card, bank transfer, USSD, wallet or cash to the driver.</p></div>
+<div class="card"><h3>Made for our roads</h3><p class="mut">Traffic-aware estimates, rainy-season demand alerts and local landmarks as pickup points.</p></div></div></div></section>
+
+<section class="blk wrap"><div class="grid g2" style="align-items:center"><div><h2>Safety is not an add-on</h2><p>Every driver passes document and vehicle checks. You see the name, rating, car and plate before you get in. Share your live trip and reach SOS in one tap.</p><button class="btn s" data-go="safety">See how we keep you safe</button></div>
+<div class="card"><div class="row"><span class="tag"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Verified driver</span><span class="tag"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg> Secure payment</span><span class="tag"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Live trip sharing</span></div><p class="mut" style="margin-top:14px">Support is available 24/7 in-app and by phone during and after every trip.</p></div></div></section>
+
+<section class="blk wrap" style="padding-top:0"><div class="card row sp" style="background:var(--yel);color:#1a1400;border:0"><div><h2 style="margin:0">Earn on your own terms.</h2><p style="margin:6px 0 0">Weekly payouts, flexible hours, real support.</p></div><button class="btn s" data-go="drive">Start driving</button></div></section>
+
+<section class="blk wrap" style="padding-top:0"><h2>Cities we serve</h2><div class="grid g4" id="cities"></div></section>
+
+<section class="blk wrap" style="padding-top:0"><h2>What riders say <span class="mut" style="font-size:.9rem;font-weight:400">(demo testimonials)</span></h2><div class="grid g3">
+<div class="card"><p>"I can finally book a ride without wondering how much I'll pay before I get there."</p><b>Amaka, Lagos</b></div>
+<div class="card"><p>"Sharing my trip with my mum on late-night rides from campus gave us both peace of mind."</p><b>Tunde, Ibadan</b></div>
+<div class="card"><p>"Airport run from Maitama was on time and I paid cash. No wahala."</p><b>Hauwa, Abuja</b></div></div></section>
+<section class="blk wrap" style="padding-top:0"><h2>Quick answers</h2><div class="faq"></div><button class="btn o" data-go="help">More help</button></section>
+<section class="blk wrap"><div class="card" style="text-align:center;padding:40px"><h2>Ready? Oya.</h2><button class="btn p" data-go="ride">Book a Ride</button></div></section>
+</div>
+
+<!-- RIDE -->
+<div class="view" id="v-ride"><section class="blk wrap"><h1 style="font-size:2.4rem">Book a ride</h1>
+<div class="grid g2" style="align-items:start">
+<div class="card"><div class="tabs" role="group" aria-label="When"><button class="on" data-when="Now">Ride now</button><button data-when="Later">Schedule</button></div>
+<label for="rCity">City</label><select id="rCity" class="citySel"></select>
+<label for="rFrom">Pickup</label><div class="row" style="flex-wrap:nowrap"><input id="rFrom" list="places" placeholder="Where are you?"><button class="btn s" id="loc" type="button" title="Use current location" aria-label="Use current location"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></button></div>
+<label for="rStop">Stop (optional)</label><input id="rStop" list="places" placeholder="Add a stop">
+<label for="rTo">Destination</label><input id="rTo" list="places" placeholder="Where to?"><div class="err" id="rErr" role="alert"></div>
+<div id="when" hidden><label for="rWhen">Pickup time</label><input id="rWhen" type="datetime-local"></div>
+<p class="mut" style="font-size:.85rem;margin-top:12px">Fares are estimates and may change depending on traffic, route, demand, tolls or other factors.</p></div>
+<div><div id="rides"><div class="card mut">Enter a pickup and destination to see ride options and fares.</div></div>
+<div class="card" id="bd" hidden style="margin-top:12px"></div>
+<div class="card" id="payBox" hidden style="margin-top:12px"><h3>Payment</h3><div id="pays"></div><div id="payDet"></div><div class="err" id="pErr" role="alert"></div>
+<button class="btn p" id="confirm" style="width:100%;margin-top:10px">Confirm ride</button></div></div></div></section></div>
+
+<!-- TRACK -->
+<div class="view" id="v-track"><section class="blk wrap"><div class="grid g2" style="align-items:start">
+<div><svg class="map" viewBox="0 0 400 300" role="img" aria-label="Map showing driver approaching pickup"><path d="M0 220H400M120 0V300M280 0V300M0 90H400" stroke="#fff" stroke-width="14" fill="none"/><path d="M0 220H400M120 0V300M280 0V300M0 90H400" stroke="#c4d0e6" stroke-width="2" fill="none" stroke-dasharray="8 8"/><path id="route" d="M60 270 V220 H120 V90 H280 V40" fill="none" stroke="#173B8C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="120" cy="220" r="9" fill="#0E8F5B" stroke="#fff" stroke-width="3"/><text x="132" y="238" font-size="12" fill="#0F1B3D">Pickup</text><rect x="272" y="32" width="16" height="16" fill="#C62828" stroke="#fff" stroke-width="3"/><text x="226" y="30" font-size="12" fill="#0F1B3D">Destination</text><g id="car"><circle r="13" fill="#FFC21A" stroke="#0C2A6B" stroke-width="3"/><path d="M-6 3v-4l2-3h8l2 3v4z" fill="#0C2A6B"/></g></svg></div>
+<div class="card"><div id="tkState"></div></div></div></section></div>
+
+<!-- DRIVE -->
+<div class="view" id="v-drive"><section class="hero" style="padding:44px 0 56px"><div class="wrap"><div><h1>Earn on your own terms.</h1><p class="lead">Drive when it suits you. Weekly payouts to your bank, clear earnings and real support.</p><button class="btn p" id="toReg">Register to drive</button> <button class="btn o" data-act="dash" style="color:#fff">Preview driver dashboard</button></div>
+<div class="grid g2"><div class="card"><b>Flexible hours</b><br><span class="mut">Go online whenever.</span></div><div class="card"><b>Weekly earnings</b><br><span class="mut">Paid every Monday.</span></div><div class="card"><b>Driver support</b><br><span class="mut">Real people, 24/7.</span></div><div class="card"><b>Incentives</b><br><span class="mut">Peak-hour bonuses.</span></div></div></div></section>
+<section class="blk wrap" id="dreg"><div class="grid g2" style="align-items:start"><form class="card" id="dForm" novalidate><h2>Driver registration</h2>
+<div id="dFields"></div><h3 style="margin-top:20px">Documents</h3><div id="dDocs"></div><button class="btn p" style="width:100%;margin-top:16px">Submit application</button></form>
+<div class="card"><h3>Eligibility checklist</h3><p><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> 21 years or older<br><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Valid Nigerian driver's licence<br><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Vehicle 2010 or newer, in good condition<br><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Vehicle registration and insurance<br><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Valid ID (NIN, passport or voter's card)<br><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Vehicle inspection report<br><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Smartphone with data</p></div></div></section>
+<section class="blk wrap" id="dash" hidden style="padding-top:0"></section></div>
+
+<!-- SAFETY -->
+<div class="view" id="v-safety"><section class="hero" style="padding:44px 0 56px"><div class="wrap"><div><h1>Ride knowing who's driving.</h1><p class="lead">Checks before the trip, tools during it, support after it.</p><button class="btn p" data-act="safety">Open Safety Center</button></div></div></section>
+<section class="blk wrap"><div class="grid g3">
+<div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Driver verification</h3><p class="mut">Licence, ID, vehicle papers, insurance and inspection are reviewed before a driver can accept trips.</p></div>
+<div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg> Trip sharing</h3><p class="mut">Send a live link to trusted contacts so they can follow your route and ETA.</p></div>
+<div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg> Emergency assistance</h3><p class="mut">SOS stays one tap away on every active trip and alerts our response team.</p></div>
+<div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-id"/></svg> Know your driver</h3><p class="mut">See name, rating, vehicle and plate number before you get in. Match them every time.</p></div>
+<div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg> Ride monitoring</h3><p class="mut">Trips are tracked by GPS. Long stops or route deviations trigger a check-in.</p></div>
+<div class="card"><h3><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg> Safety support</h3><p class="mut">Reach us during and after rides to report any issue.</p></div></div></section></div>
+
+<!-- ABOUT -->
+<div class="view" id="v-about"><section class="blk wrap"><h1>Built in Nigeria, for the way Nigeria moves.</h1>
+<p style="max-width:40em">Oya started with a simple frustration: getting around our cities shouldn't mean haggling, guessing prices or wondering about who's behind the wheel. We built a ride app that treats traffic, rain, fuel costs and cash as part of the plan.</p>
+<div class="grid g2"><div class="card"><h3>Mission</h3>Make everyday transportation safer, simpler and more accessible.</div><div class="card"><h3>Vision</h3>Build a connected transportation network across Nigeria.</div></div>
+<div class="grid g4" style="margin:24px 0"><div><div class="stat">7</div>cities</div><div><div class="stat">12,400</div>drivers</div><div><div class="stat">1.8M</div>trips</div><div><div class="stat">4.8★</div>rider rating</div></div>
+<p class="mut" style="font-size:.85rem">Demo statistics for a fictional company.</p>
+<h2 style="margin-top:32px">About this project</h2><div class="faq" id="about-faq"></div></section></div>
+
+<!-- HELP -->
+<div class="view" id="v-help"><section class="blk wrap"><h1>Help &amp; support</h1>
+<div class="grid g4" style="margin-bottom:24px"><div class="card"><b><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg> Call</b><br><span class="mut">+234 700 692 0000</span></div><div class="card"><b><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> Email</b><br><span class="mut">help@oya.example</span></div><div class="card"><b><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg> In-app</b><br><span class="mut">Chat 24/7</span></div><div class="card"><b><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg> Emergency</b><br><button class="btn d" data-act="sos" style="padding:6px 14px">SOS</button></div></div>
+<div class="grid g2" style="align-items:start"><form class="card" id="cForm" novalidate><h2>Contact us</h2><div id="cFields"></div><button class="btn s" style="width:100%;margin-top:14px">Send message</button></form><div><h2>FAQ</h2><div class="faq"></div></div></div></section></div>
+
+<!-- ACCOUNT -->
+<div class="view" id="v-account"><section class="blk wrap" id="acct"></section></div>
+</main>
+<footer><div class="wrap"><div class="grid g4" style="margin-bottom:24px">
+<div><h3>Company</h3><button data-go="about">About</button><button data-t="Careers page coming soon">Careers</button><button data-t="Press kit coming soon">Press</button><button data-t="Blog coming soon">Blog</button></div>
+<div><h3>Riders</h3><button data-go="ride">Book a Ride</button><button data-go="ride">Ride Options</button><button data-go="safety">Safety</button><button data-go="help">Help</button></div>
+<div><h3>Drivers</h3><button data-go="drive">Become a Driver</button><button data-go="drive">Driver Requirements</button><button data-go="safety">Driver Safety</button><button data-go="drive">Earnings</button></div>
+<div><h3>Legal</h3><button data-t="Privacy Policy opens in the full product">Privacy Policy</button><button data-t="Terms open in the full product">Terms</button><button data-t="Cookie Policy opens in the full product">Cookie Policy</button><div class="row" style="margin-top:8px"><button data-t="Instagram">Instagram</button><button data-t="Facebook">Facebook</button><button data-t="X">X</button><button data-t="LinkedIn">LinkedIn</button></div></div></div>
+<p>© 2026 Oya. All rights reserved. Fictional company for demonstration.</p></div></footer>
+<button class="btn sos" data-act="safety" aria-label="Safety Center"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg> Safety</button>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<datalist id="places"></datalist>
+<dialog id="dlg"></dialog>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const N=n=>'₦'+Math.round(n).toLocaleString('en-NG');
+const CITIES={Lagos:[['Ikeja City Mall',6.6,3.35],['Lekki Phase 1',6.44,3.47],['Victoria Island',6.43,3.42],['Yaba',6.51,3.37],['Surulere',6.5,3.35],['Murtala Muhammed Airport',6.58,3.32],['Ajah',6.47,3.58]],Abuja:[['Wuse 2',9.07,7.47],['Garki',9.03,7.49],['Maitama',9.09,7.5],['Nnamdi Azikiwe Airport',9.0,7.26],['Jabi Lake Mall',9.07,7.42]],'Port Harcourt':[['Trans-Amadi',4.82,7.04],['GRA Phase 2',4.82,7.01],['Rumuola',4.85,7.0],['Port Harcourt Airport',5.01,6.95]],Ibadan:[['Bodija',7.43,3.91],['Dugbe',7.38,3.9],['UI Gate',7.44,3.9],['Challenge',7.35,3.89]],'Benin City':[['Ring Road',6.34,5.62],['Uselu',6.4,5.61],['GRA',6.33,5.64]],Enugu:[['Independence Layout',6.45,7.5],['Ogui Road',6.45,7.51],['UNEC Enugu Campus',6.43,7.55]],Kano:[['Sabon Gari',12.0,8.52],['Nasarawa GRA',11.98,8.55],['Mallam Aminu Kano Airport',12.05,8.52]]};
+const RIDES={go:{n:'Go',d:'Affordable everyday rides',cap:'1–4',b:500,k:120,m:20,eta:3,f:'AC · Everyday car'},comfort:{n:'Comfort',d:'Newer cars, extra legroom',cap:'1–4',b:800,k:170,m:28,eta:5,f:'AC · Newer car · Quiet ride'},xl:{n:'XL',d:'Space for groups and luggage',cap:'1–6',b:1200,k:250,m:35,eta:7,f:'AC · Large boot · Group seating'},premium:{n:'Premium',d:'Top-rated drivers, premium cars',cap:'1–4',b:2000,k:380,m:50,eta:9,f:'Leather · Top-rated drivers · Water'}};
+const FAQ=[['How do I book a ride?','Choose a pickup and destination, pick a ride type, choose how to pay and confirm.'],['How much does a ride cost?','Fares combine base fare, distance, time and a service fee. You see the full estimate before you confirm.'],['What payment methods are supported?','Card, bank transfer, USSD, wallet and cash.'],['Can I pay with cash?','Yes. Pay your driver in cash after your ride.'],['How do I become a driver?','Open Drive, submit your details and documents, and we review within a few days.'],['How are drivers verified?','We check licence, ID, vehicle papers, insurance and inspection before activation.'],['Can I cancel a ride?','Yes, from the tracking screen. Cancelling after the driver is close may attract a small fee.'],['What if I leave something in the vehicle?','Use Help, choose Lost item and we will connect you with the driver.'],['How does surge pricing work?','When demand is high (rush hour, heavy rain) fares rise. The multiplier is shown before you confirm.'],['Can I schedule a ride?','Yes. Choose Schedule on the booking screen and set a pickup time.'],['How do I report a safety issue?','Use the Safety Center on any screen, or choose Safety concern on the Help form.'],['Does Oya operate outside Lagos?','Yes: Abuja, Port Harcourt, Ibadan, Benin City, Enugu and Kano.'],['Can I share my trip with someone?','Yes. Tap Share trip to send a live link to a trusted contact.'],['How do I contact customer support?','Call, email or chat in the app. Support is available 24/7.']];
+const ABOUT=[['What the company does','Oya connects riders with verified drivers across seven Nigerian cities with upfront ₦ pricing.'],['Target audience','Students, professionals, families, airport travellers; drivers and fleet owners on the supply side.'],['Booking process','Locations → fare estimate → ride type → payment → confirmation → live tracking.'],['Design decisions','Lagoon blue and danfo yellow nod to Lagos streets, avoiding black/white and green taxi branding. Bricolage Grotesque and DM Sans.'],['Nigerian localization','₦ pricing, local landmarks, USSD and transfer payments, +234 phone formats, peak and rain pricing.'],['Safety approach','Verification, trip sharing, SOS, driver details, monitoring and support.'],['Technology','Single-file HTML, CSS and vanilla JavaScript with mock data. No backend or API keys.']];
+let S={city:'Lagos',from:'',to:'',stop:'',type:'go',pay:'cash',user:null,trips:[],driverOn:false,when:'Now'};
+const toast=(m,bad)=>{const t=document.createElement('div');t.className='toast'+(bad?' bad':'');t.textContent=m;$('#toasts').append(t);setTimeout(()=>t.remove(),3500)};
+const dlg=h=>{const d=$('#dlg');d.innerHTML=h;d.showModal?d.showModal():d.setAttribute('open','')};const closeD=()=>{const d=$('#dlg');d.close?d.close():d.removeAttribute('open')};
+function show(v){$$('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v));$$('nav [data-go]').forEach(b=>b.classList.toggle('on',b.dataset.go===v));$('#nav').classList.remove('open');$('#burger').setAttribute('aria-expanded',false);scrollTo(0,0);document.title='Oya – '+v[0].toUpperCase()+v.slice(1);if(v==='account')acct();if(v==='ride')calc()}
+function places(){const L=CITIES[S.city];$('#places').innerHTML=L.map(p=>`<option>${p[0]}</option>`).join('')}
+function find(n){return CITIES[S.city].find(p=>p[0].toLowerCase()===n.trim().toLowerCase())}
+function dist(a,b){const R=6371,t=x=>x*Math.PI/180,dl=t(b[1]-a[1]),dn=t(b[2]-a[2]);const h=Math.sin(dl/2)**2+Math.cos(t(a[1]))*Math.cos(t(b[1]))*Math.sin(dn/2)**2;return Math.max(1.5,2*R*Math.asin(Math.sqrt(h))*1.35)}
+function peak(){const h=new Date().getHours();return(h>=7&&h<10)||(h>=17&&h<20)}
+function quote(t){const a=find($('#rFrom').value),b=find($('#rTo').value);if(!a||!b||a===b)return null;let km=dist(a,b);const s=find($('#rStop').value);if(s)km=dist(a,s)+dist(s,b);km=Math.round(km*10)/10;const min=Math.round(km*2.6+4),r=RIDES[t],sur=peak()?1.2:1,base=r.b,dd=r.k*km,tt=r.m*min,fee=150,tot=(base+dd+tt)*sur+fee;return{km,min,base,dd,tt,fee,sur,tot,sp:(base+dd+tt)*(sur-1)}}
+function calc(){const e=$('#rErr');e.textContent='';const F=$('#rFrom').value,T=$('#rTo').value;$('#rFrom').setAttribute('aria-invalid',false);$('#rTo').setAttribute('aria-invalid',false);if(!F||!T){$('#rides').innerHTML='<div class="card mut">Enter a pickup and destination to see ride options and fares.</div>';$('#bd').hidden=$('#payBox').hidden=true;return}
+if(!find(T)||!find(F)){const bad=!find(T)?'#rTo':'#rFrom';$(bad).setAttribute('aria-invalid',true);e.textContent=bad==='#rTo'?'Please enter a valid destination.':'Please choose a pickup from the list.';$('#bd').hidden=$('#payBox').hidden=true;return}
+if(F===T){e.textContent='Pickup and destination can\'t be the same.';return}
+if(!quote('go')){e.textContent='Pickup and destination can\'t be the same.';return}
+$('#rides').innerHTML=Object.entries(RIDES).map(([k,r])=>{const q=quote(k);return`<button class="rc ${k===S.type?'sel':''}" data-t="${k}" aria-pressed="${k===S.type}">${car(k)}<span><b>${r.n}</b> <span class="mut">· ${r.cap} seats · ${r.eta} min away</span><br><span class="mut" style="font-size:.88rem">${r.d}. ${r.f}</span></span><span class="price">${N(q.tot)}</span></button>`}).join('');
+$$('.rc').forEach(b=>b.onclick=()=>{S.type=b.dataset.t;calc()});const q=quote(S.type);
+$('#bd').hidden=$('#payBox').hidden=false;$('#bd').innerHTML=`<h3>Fare breakdown · ${RIDES[S.type].n}</h3><p class="mut">${q.km} km · about ${q.min} min</p><div class="bd"><div><span>Base fare</span><span>${N(q.base)}</span></div><div><span>Distance (${q.km} km)</span><span>${N(q.dd)}</span></div><div><span>Time (${q.min} min)</span><span>${N(q.tt)}</span></div>${q.sur>1?`<div><span><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg> Peak pricing ×1.2</span><span>${N(q.sp)}</span></div>`:''}<div><span>Booking fee</span><span>${N(q.fee)}</span></div><div class="t"><span>Estimated total</span><span>${N(q.tot)}</span></div></div><p class="mut" style="font-size:.82rem">Estimate only. Final fare may change with traffic, route, demand or tolls.</p>`;payUI()}
+function car(k){const c={go:'#173B8C',comfort:'#0E8F5B',xl:'#B76E00',premium:'#0F1B3D'}[k];return`<svg viewBox="0 0 80 40" aria-hidden="true"><path d="M6 28l4-10c1-3 3-5 7-5h30c4 0 6 2 8 5l8 3c4 1 6 3 6 7v2H6z" fill="${c}"/><path d="M18 15h12v7H14zM34 15h12l5 7H34z" fill="#cfe0ff"/><circle cx="21" cy="30" r="6" fill="#111"/><circle cx="59" cy="30" r="6" fill="#111"/></svg>`}
+const PAYS=[['card','<svg class="i" aria-hidden="true"><use href="#i-card"/></svg> Debit/Credit card'],['transfer','<svg class="i" aria-hidden="true"><use href="#i-bank"/></svg> Bank transfer'],['ussd','<svg class="i" aria-hidden="true"><use href="#i-phone"/></svg> USSD'],['wallet','<svg class="i" aria-hidden="true"><use href="#i-wallet"/></svg> Oya wallet (₦12,500)'],['cash','<svg class="i" aria-hidden="true"><use href="#i-cash"/></svg> Cash']];
+function payUI(){$('#pays').innerHTML=PAYS.map(([k,l])=>`<label class="pay"><input type="radio" name="pm" value="${k}" ${S.pay===k?'checked':''}>${l}</label>`).join('');$$('[name=pm]').forEach(r=>r.onchange=()=>{S.pay=r.value;payDet()});payDet()}
+function payDet(){const d=$('#payDet');d.innerHTML={card:'<label for="cn">Card number</label><input id="cn" inputmode="numeric" placeholder="5061 0000 0000 0000"><div class="row"><div style="flex:1"><label for="ce">Expiry</label><input id="ce" placeholder="MM/YY"></div><div style="flex:1"><label for="cc">CVV</label><input id="cc" placeholder="123"></div></div><p class="mut" style="font-size:.82rem"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg> Secure payment. Demo: a card ending 0000 simulates a failed payment.</p>',transfer:'<p class="mut">You\'ll get a one-time account number (Wema Bank) after confirming.</p>',ussd:'<p class="mut">Dial <b>*737*50*AMOUNT#</b> from your phone after confirming. We\'ll simulate it.</p>',wallet:'<p class="mut">The fare is taken from your wallet balance.</p>',cash:'<p><b>Pay driver in cash after your ride.</b></p>'}[S.pay]}
+$('#confirm').onclick=()=>{const e=$('#pErr');e.textContent='';if(!navigator.onLine){e.textContent="We couldn't connect right now. Please check your connection and try again.";return}
+if(S.pay==='card'){const n=($('#cn').value||'').replace(/\s/g,'');if(n.length<12){e.textContent='Enter a valid card number.';return}if(n.endsWith('0000')){e.textContent='Your payment could not be completed. Please try another payment method.';toast('Payment failed','bad');return}}
+if(S.type==='premium'&&!['Lagos','Abuja'].includes(S.city)){e.textContent='No drivers are currently available nearby. Try again in a few minutes.';return}
+const b=$('#confirm');b.disabled=true;b.textContent='Finding your driver…';setTimeout(()=>{b.disabled=false;b.textContent='Confirm ride';const q=quote(S.type);S.cur={...q,from:$('#rFrom').value,to:$('#rTo').value,type:S.type,pay:S.pay};if(S.when==='Later'){toast('Ride scheduled. We\'ll assign a driver before pickup.');S.trips.unshift({...S.cur,st:'Scheduled'});show('account');return}track()},1400)};
+$$('[data-when]').forEach(b=>b.onclick=()=>{S.when=b.dataset.when;$$('[data-when]').forEach(x=>x.classList.toggle('on',x===b));$('#when').hidden=S.when==='Now'});
+let eta=0,iv;function track(){const c=S.cur;show('track');eta=RIDES[c.type].eta;$('#car').setAttribute('transform','translate(60,270)');tkRender();clearInterval(iv);let p=0;const R=$('#route'),L=R.getTotalLength();iv=setInterval(()=>{p=Math.min(p+.012,1);const pt=R.getPointAtLength(L*p);$('#car').setAttribute('transform',`translate(${pt.x},${pt.y})`);if(p>.5&&eta>1){eta=Math.max(1,eta-1);tkRender()}if(p>=1){clearInterval(iv)}},300)}
+function tkRender(){const c=S.cur;$('#tkState').innerHTML=`<span class="tag">Driver arriving in ${eta} min</span><div class="row" style="margin:14px 0"><div style="width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font:800 1.3rem 'Bricolage Grotesque'" role="img" aria-label="Chinedu Okafor profile">CO</div><div><b>Chinedu Okafor</b> <span class="tag"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg> Verified</span><br>★ 4.9 · 1,248 trips</div></div><p>Toyota Corolla · Silver<br><b style="font:800 1.3rem 'Bricolage Grotesque'">ABC 123 XY</b></p><p class="mut">${c.from} → ${c.to}<br>${N(c.tot)} · ${PAYS.find(p=>p[0]===c.pay)[1]}</p><div class="grid g2"><button class="btn s" data-t="Calling Chinedu…"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg> Call</button><button class="btn s" data-t="Message sent to driver"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg> Message</button><button class="btn o" id="share"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg> Share trip</button><button class="btn d" data-act="sos"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg> SOS</button></div><button class="btn o" style="width:100%;margin-top:10px;color:var(--err)" id="cancel">Cancel ride</button>`;$('#share').onclick=share;$('#cancel').onclick=()=>{clearInterval(iv);S.trips.unshift({...c,st:'Cancelled'});$('#tkState').innerHTML='<h3>Your ride has been cancelled.</h3><button class="btn p" data-go="ride">Book another</button>';toast('Your ride has been cancelled.')}}
+function share(){const l='https://oya.example/t/'+Math.random().toString(36).slice(2,8);navigator.clipboard?.writeText(l).catch(()=>{});toast('Live trip link copied: '+l)}
+function field(id,l,o={}){return`<label for="${id}">${l}</label>${o.sel?`<select id="${id}"><option value="">Select…</option>${o.sel.map(x=>`<option>${x}</option>`).join('')}</select>`:o.ta?`<textarea id="${id}" rows="4"></textarea>`:`<input id="${id}" type="${o.t||'text'}" placeholder="${o.p||''}" ${o.ac?`autocomplete="${o.ac}"`:''}>`}<div class="err" id="${id}-e" role="alert"></div>`}
+const V={email:v=>/^\S+@\S+\.\S+$/.test(v)||'Enter a valid email address.',phone:v=>/^(\+234|0)[789]\d{9}$/.test(v.replace(/\s/g,''))||'Use a Nigerian number, e.g. +234 801 234 5678.',req:v=>!!v.trim()||'This field is required.',pw:v=>v.length>=8||'Use at least 8 characters.',plate:v=>/^[A-Z]{3}[\s-]?\d{3}[\s-]?[A-Z]{2}$/i.test(v)||'Format: ABC 123 XY.'};
+function validate(spec){let ok=true;spec.forEach(([id,fn])=>{const el=$('#'+id),r=V[fn](el.value||'');el.setAttribute('aria-invalid',r!==true);$('#'+id+'-e').textContent=r===true?'':r;if(r!==true){ok=false}});if(!ok)$('[aria-invalid=true]')?.focus();return ok}
+function auth(mode){const su=mode==='signup';dlg(`<h2>${su?'Create your account':'Welcome back'}</h2><form id="aF" novalidate>${su?field('aN','Full name',{ac:'name'}):''}${su?field('aE','Email',{t:'email',ac:'email'}):''}${field('aP',su?'Phone number':'Phone or email',{p:'+234 801 234 5678',ac:'tel'})}${field('aW','Password',{t:'password'})}${su?field('aR','Referral code (optional)')+'<label class="row" style="font-weight:400"><input type="checkbox" id="aT" style="width:auto"> I agree to the Terms and Privacy Policy</label><div class="err" id="aT-e"></div>':'<div class="row sp"><label class="row" style="font-weight:400;margin:0"><input type="checkbox" style="width:auto" checked> Remember me</label><a href="#" data-t="Reset link sent if the account exists">Forgot password?</a></div>'}<button class="btn p" style="width:100%;margin-top:14px">${su?'Continue':'Login'}</button></form><p class="mut" style="text-align:center">${su?'Have an account?':'New to Oya?'} <a href="#" id="sw">${su?'Login':'Sign up'}</a> · <a href="#" id="x">Close</a></p>`);
+$('#sw').onclick=e=>{e.preventDefault();auth(su?'login':'signup')};$('#x').onclick=e=>{e.preventDefault();closeD()};$('#aF').onsubmit=e=>{e.preventDefault();let ok=true;const rules=su?[['aN','req'],['aE','email'],['aP','phone'],['aW','pw']]:[['aW','pw'],['aP','req']];ok=validate(rules);if(su&&!$('#aT').checked){$('#aT-e').textContent='Please accept the terms to continue.';ok=false}if(!ok)return;S.user={name:su?$('#aN').value.split(' ')[0]:'Amaka'};closeD();authUI();toast('Welcome to Oya, '+S.user.name+'!');show('account')}}
+function authUI(){$('#loginBtn').textContent=S.user?'Account':'Login';$('#signBtn').hidden=!!S.user;$('#loginBtn').dataset.act=S.user?'acct':'auth-login'}
+function acct(){if(!S.user){$('#acct').innerHTML='<div class="card" style="text-align:center"><h2>Log in to see your account</h2><button class="btn s" data-act="auth-login">Login</button></div>';return}
+$('#acct').innerHTML=`<h1 style="font-size:2.2rem">Hello, ${S.user.name}</h1><div class="grid g3"><button class="city" data-go="ride" data-prefill="Ikeja City Mall"><b><svg class="i" aria-hidden="true"><use href="#i-home"/></svg> Home</b><br><span class="mut">Ikeja City Mall</span></button><button class="city" data-go="ride" data-prefill="Victoria Island"><b><svg class="i" aria-hidden="true"><use href="#i-work"/></svg> Work</b><br><span class="mut">Victoria Island</span></button><div class="card"><b><svg class="i" aria-hidden="true"><use href="#i-gift"/></svg> Promo</b><br>OYA20: 20% off your next ride</div></div>
+<div class="grid g2" style="margin-top:16px"><div class="card"><h3>Recent trips</h3>${S.trips.length?S.trips.map(t=>`<div class="row sp bd"><div style="padding:6px 0">${t.from} → ${t.to}<br><span class="mut">${t.st||'Completed'}</span></div><b>${N(t.tot)}</b></div>`).join(''):'<p class="mut">You haven\'t taken a ride yet.</p><button class="btn p" data-go="ride">Book your first ride</button>'}</div>
+<div class="card"><h3>Payment methods</h3><p><svg class="i" aria-hidden="true"><use href="#i-card"/></svg> Card ending 4417<br><svg class="i" aria-hidden="true"><use href="#i-wallet"/></svg> Wallet ₦12,500<br><svg class="i" aria-hidden="true"><use href="#i-cash"/></svg> Cash</p><h3>Favourite drivers</h3><p>★ Chinedu Okafor · Toyota Corolla</p><h3>Support</h3><button class="btn o" data-go="help">Get help</button> <button class="btn o" id="out">Log out</button></div></div>`;$('#out').onclick=()=>{S.user=null;authUI();show('home');toast('Logged out')}}
+function dashboard(){const d=$('#dash');d.hidden=false;const reqs=[['Lekki Phase 1','Victoria Island','₦3,200'],['Ikeja City Mall','Murtala Muhammed Airport','₦4,100'],['Yaba','Surulere','₦1,900']];d.innerHTML=`<div class="card"><div class="row sp"><div><h2 style="margin:0">Driver dashboard</h2><span class="mut">Chinedu Okafor · ★ 4.9 · Toyota Corolla ABC 123 XY</span></div><div class="row"><span id="stt">${S.driverOn?'Online':'Offline'}</span><button class="sw" id="sw2" aria-pressed="${S.driverOn}" aria-label="Go online"></button></div></div>
+<div class="grid g4" style="margin:18px 0"><div><div class="stat">₦18,400</div>today</div><div><div class="stat">₦96,750</div>this week</div><div><div class="stat">9</div>trips today</div><div><div class="stat">₦41,200</div>wallet</div></div><h3>Ride requests</h3><div id="reqs"></div><h3 style="margin-top:14px">Recent trips</h3><p class="mut">Yaba → Ikeja ₦2,300 · Wuse → Garki ₦1,700 · VI → Lekki ₦3,400</p></div>`;const rr=()=>{$('#reqs').innerHTML=S.driverOn?reqs.map((r,i)=>`<div class="row sp bd" style="padding:8px 0"><span>${r[0]} → ${r[1]}</span><span><b>${r[2]}</b> <button class="btn p" data-i="${i}" style="padding:6px 14px">Accept</button></span></div>`).join(''):'<p class="mut">Go online to receive ride requests.</p>';$$('[data-i]').forEach(b=>b.onclick=()=>toast('Trip accepted. Navigating to pickup.'))};rr();$('#sw2').onclick=e=>{S.driverOn=!S.driverOn;e.target.setAttribute('aria-pressed',S.driverOn);$('#stt').textContent=S.driverOn?'Online':'Offline';rr();toast(S.driverOn?'You are online':'You are offline')};d.scrollIntoView()}
+function safetyCenter(){dlg(`<h2>Safety Center</h2><div class="grid"><button class="btn d" data-act="sos"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg> Emergency</button><button class="btn s" id="sh"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg> Share Trip</button><button class="btn o" data-go="help" id="cs">Contact Support</button><button class="btn o" data-go="help" id="ri">Report an Issue</button><details><summary>Safety Tips</summary><p class="mut">Check the plate before you enter. Sit in the back. Share your trip at night. Keep your phone charged.</p></details></div><p><a href="#" id="x">Close</a></p>`);$('#sh').onclick=share;$('#x').onclick=e=>{e.preventDefault();closeD()};['cs','ri'].forEach(i=>$('#'+i).onclick=()=>{closeD();show('help')})}
+function sos(){dlg(`<h2 style="color:var(--err)">Emergency help</h2><p>We can alert our response team and share your live location with your trusted contacts.</p><button class="btn d" style="width:100%" id="s1">Send alert now</button><p><a href="#" id="x">Cancel</a></p>`);$('#x').onclick=e=>{e.preventDefault();closeD()};$('#s1').onclick=()=>{closeD();toast('Alert sent. Our response team is contacting you. (Demo)')}}
+function drvForms(){$('#dFields').innerHTML=['<h3>Personal details</h3>',field('dN','Full name'),field('dP','Phone',{p:'+234 801 234 5678'}),field('dE','Email',{t:'email'}),field('dB','Date of birth',{t:'date'}),'<h3 style="margin-top:16px">Vehicle</h3>',field('vM','Make',{p:'Toyota'}),field('vD','Model',{p:'Corolla'}),field('vY','Year',{p:'2016'}),field('vP','Plate number',{p:'ABC 123 XY'}),field('vC','Colour')].join('');$('#dDocs').innerHTML=["Driver's licence",'Vehicle registration','Insurance','Valid ID','Inspection report'].map((d,i)=>`<label for="f${i}">${d}</label><input type="file" id="f${i}" accept="image/*,.pdf">`).join('');$('#cFields').innerHTML=field('cN','Name')+field('cE','Email',{t:'email'})+field('cP','Phone',{p:'+234 801 234 5678'})+field('cT','Issue type',{sel:['Ride issue','Payment issue','Driver issue','Lost item','Account issue','Safety concern','Other']})+field('cM','Message',{ta:1})}
+$('#dForm').onsubmit=e=>{e.preventDefault();if(!validate([['dN','req'],['dP','phone'],['dE','email'],['dB','req'],['vM','req'],['vD','req'],['vY','req'],['vP','plate'],['vC','req']]))return;toast('Application received. We\'ll review it in 2–3 days.');dashboard()};
+$('#cForm').onsubmit=e=>{e.preventDefault();if(!validate([['cN','req'],['cE','email'],['cP','phone'],['cT','req'],['cM','req']]))return;e.target.reset();toast('Message sent. We\'ll reply within 24 hours.')};
+$('#heroForm').onsubmit=e=>{e.preventDefault();const t=$('#hTo').value,f=$('#hFrom').value;S.city=$('#hCity').value;if(!find(t)){$('#hErr').textContent='Please enter a valid destination.';return}$('#hErr').textContent='';$('#rCity').value=S.city;places();$('#rFrom').value=f||CITIES[S.city][0][0];$('#rTo').value=t;show('ride')};
+$('#loc').onclick=()=>{$('#rFrom').value=CITIES[S.city][0][0];toast('Using your current location');calc()};
+['rFrom','rTo','rStop'].forEach(i=>$('#'+i).addEventListener('input',calc));
+$$('.citySel').forEach(s=>{s.innerHTML=Object.keys(CITIES).map(c=>`<option>${c}</option>`).join('');s.onchange=()=>{S.city=s.value;$$('.citySel').forEach(x=>x.value=S.city);places();$('#rFrom').value=$('#rTo').value=$('#rStop').value='';calc();cityUI()}});
+function cityUI(){$('#cities').innerHTML=Object.keys(CITIES).map(c=>`<button class="city ${c===S.city?'on':''}" data-c="${c}">${cityImg(c)}<b>${c}</b><br><span class="mut">${CITIES[c][0][0]}, ${CITIES[c][1][0]}</span></button>`).join('');$$('[data-c]').forEach(b=>b.onclick=()=>{S.city=b.dataset.c;$$('.citySel').forEach(x=>x.value=S.city);places();cityUI();toast('Showing rides in '+S.city)})}
+$('#homeRides').innerHTML=Object.entries(RIDES).map(([k,r])=>`<div class="card">${car(k)}<h3>${r.n}</h3><p class="mut">${r.d}<br>${r.cap} passengers</p><div class="price">${N(r.b*3.6)}+</div><button class="btn s" style="margin-top:10px" data-go="ride" data-sel="${k}">Select</button></div>`).join('');
+$$('.faq').forEach(f=>f.innerHTML=FAQ.slice(0,f.closest('#v-help')?14:5).map(([q,a])=>`<details><summary>${q}</summary><p class="mut">${a}</p></details>`).join(''));
+$('#about-faq').innerHTML=ABOUT.map(([q,a])=>`<details><summary>${q}</summary><p class="mut">${a}</p></details>`).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go],[data-act],[data-t]:not(.rc)');if(!b)return;if(b.dataset.t&&!b.dataset.go&&!b.dataset.act&&!b.classList.contains('rc')){e.preventDefault();toast(b.dataset.t);return}
+if(b.dataset.sel)S.type=b.dataset.sel;if(b.dataset.go){if(b.dataset.prefill){$('#rTo').value=b.dataset.prefill}show(b.dataset.go)}
+const a=b.dataset.act;if(a==='auth-login')auth('login');if(a==='auth-signup')auth('signup');if(a==='safety')safetyCenter();if(a==='sos')sos();if(a==='acct')show('account');if(a==='dash'){dashboard()}});
+$('#toReg').onclick=()=>$('#dreg').scrollIntoView();
+$('#burger').onclick=()=>{const o=$('#nav').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
+/* Optional real photos: paste licensed image URLs (or data: URIs) here, e.g. PHOTOS.hero='https://…/lagos.jpg'. Empty = illustrated skyline. */
+const PHOTOS={hero:'',Lagos:'',Abuja:'','Port Harcourt':'',Ibadan:'','Benin City':'',Enugu:'',Kano:''};
+function skyline(seed,a,b,sun){let s=[...seed].reduce((x,c)=>x+c.charCodeAt(0),7);const r=()=>(s=(s*9301+49297)%233280)/233280;let h='';for(let L=0;L<2;L++){let x=0;while(x<800){const w=28+r()*38,ht=(L?45:85)+r()*(L?55:105),f=L?b:a;h+=`<rect x="${x}" y="${200-ht}" width="${w-3}" height="${ht}" fill="${f}" opacity="${L?.55:.95}"/>`;if(r()>.6)h+=`<rect x="${x+w/2-3}" y="${200-ht-16}" width="3" height="16" fill="${f}"/>`;if(!L&&r()>.5)for(let i=0;i<3;i++)h+=`<rect x="${x+6}" y="${200-ht+10+i*16}" width="5" height="6" fill="#FFC21A" opacity=".7"/>`;x+=w}}return`<svg viewBox="0 0 800 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><circle cx="${100+r()*600}" cy="62" r="30" fill="${sun}"/>${h}</svg>`}
+function cityImg(c){const i=Object.keys(CITIES).indexOf(c),sun=['#FFC21A','#FF9F43','#FFB703','#F9C74F','#FF8C42','#FFD166','#F4A261'][i];return`<div class="cimg" role="img" aria-label="${c} skyline illustration">${PHOTOS[c]?`<img src="${PHOTOS[c]}" alt="${c} city view" loading="lazy">`:skyline(c,'#12307A','#3F6FE6',sun)}</div>`}
+$('.hero').insertAdjacentHTML('afterbegin',`<div class="art">${skyline('Lagos','#071a44','#1c4aa8','#FFC21A')}</div>`);
+if(PHOTOS.hero)$('.hero').style.background=`linear-gradient(rgba(10,34,87,.85),rgba(10,34,87,.85)),url(${PHOTOS.hero}) center/cover`;
+$('#v-about section').insertAdjacentHTML('afterbegin',`<div class="banner" role="img" aria-label="Illustrated Lagos skyline at sunrise">${skyline('Lagos About','#12307A','#3F6FE6','#FFC21A')}</div>`);
+cityUI();
+function setTheme(t){document.documentElement.dataset.theme=t;const b=$('#theme');b.innerHTML=t==='dark'?'<svg class="i" aria-hidden="true"><use href="#i-sun"/></svg>':'<svg class="i" aria-hidden="true"><use href="#i-moon"/></svg>';b.setAttribute('aria-label',t==='dark'?'Switch to light mode':'Switch to dark mode');try{localStorage.setItem('oya-theme',t)}catch(e){}}
+let T0;try{T0=localStorage.getItem('oya-theme')}catch(e){}
+setTheme(T0||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
+$('#theme').onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+places();drvForms();authUI();
+addEventListener('offline',()=>toast("We couldn't connect right now. Please check your connection and try again.",1));
+</script>
+</body>
+</html>
